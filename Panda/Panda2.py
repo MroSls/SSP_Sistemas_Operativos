@@ -1,0 +1,33 @@
+import pandas as pd
+
+votos_primarios_us = pd.read_csv('primary_results.csv')
+df = votos_primarios_us
+
+#print(df)
+#print(df.shape)
+#print(df.head(10))
+#print(df.tail(10))
+#print(df.dtypes)
+#print(df.describe())
+#print(df.index)
+#print(df.loc[140])
+#df2 = df.set_index('county')
+#print(df2)
+#print(df2.loc['Los Angeles'])
+df2 = df.set_index('candidate')
+#print(df2)
+#print(df2.loc['Marco Rubio'])
+#df2 = df.set_index('state')
+#print(df2)
+#print(df2.loc['California'])
+#print(df2.shape)
+#print(df['state'][10])
+#print(df[['county', 'candidate']])
+#print(df[df.votes <=50])#Muesrtra los votos menores o iguales a X
+#print(df[(df.county == 'Manhattan') & (df.party == 'Democrat')])
+#print(df.query('county == "Manhattan" & party == "Democrat"'))
+df_sorted = df.sort_values(by='votes', ascending=False)
+#print(df_sorted.head())
+#print(df.groupby(['state', 'party']))
+#print(df.groupby(['state', 'party']).sum())
+df2.to_csv('editado2.csv')
