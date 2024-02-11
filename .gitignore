@@ -1,7 +1,3 @@
-Reportes de practica Base.docx
-Reportes de practica 2.docx
-Actividades/practica3/directorio1.csv
-Actividades/practica3/directoriop.csv
-editado3.csv
-editado2.csv
+Reportes
+*.csv
 sa.py

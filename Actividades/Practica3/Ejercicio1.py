@@ -2,8 +2,10 @@
 import pandas as pd
 import re
 
+csv = 'Actividades/Practica3/directorio.csv'
 regex_correo=('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')
 regex_domicilio=('^[a-zA-Z0-9\s]+$')
+regex_telefono=('^\\d{10}$')
 
 def ingreso():
     nombre = input("Ingrese el nombre: ")
@@ -13,8 +15,8 @@ def ingreso():
     validar(nombre, telefono, correo, domicilio)
 
 def validar(Nombre, Telefono, Correo, Domicilio):
-    if Nombre.isalpha() and Telefono.isdigit() and re.match(regex_correo, Correo):
-        print("Nombre válido")
+    if Nombre.isalpha() and Telefono.isdigit() and re.match(regex_telefono, Telefono) and re.match(regex_correo, Correo) and re.match(regex_domicilio, Domicilio):
+        print("Datos válidos")
         diccionario(Nombre, Telefono, Correo, Domicilio)
     else:
         print("Algun dato no es válido\nPor favor, ingrese los datos nuevamente")
@@ -33,11 +35,11 @@ def diccionario(nombre, telefono, correo, domicilio):
 
 def archivo(df):
     try:
-        df_existente = pd.read_csv('Actividades/Practica3/directorio1.csv')
+        df_existente = pd.read_csv(csv)
         df_final = pd.concat([df_existente, df])
     except FileNotFoundError:
         df_final = df
 
-    df_final.to_csv('Actividades/Practica3/directorio1.csv', index=False)
+    df_final.to_csv(csv, index=False)
 
 ingreso()
