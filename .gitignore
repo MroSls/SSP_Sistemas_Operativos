@@ -1,3 +1,6 @@
 Reportes
 *.csv
 sa.py
+RutaPython.py
+*.txt
+.gitignore
