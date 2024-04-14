@@ -4,3 +4,5 @@ sa.py
 RutaPython.py
 *.txt
 .gitignore
+*.docx
+*.pdf
